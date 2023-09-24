@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "158504325848",
+    "project_id": "nomad-final-exam",
+    "storage_bucket": "nomad-final-exam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158504325848:android:484e6e2c51f0c9ce183dad",
+        "android_client_info": {
+          "package_name": "com.example.final_exam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3T3GC5up-KwOIGGlxyhCJl1yzeW1mldk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
