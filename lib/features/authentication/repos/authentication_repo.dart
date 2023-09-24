@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'dart:io' show Platform;
 
 class AuthenticationRepository {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -26,9 +28,18 @@ class AuthenticationRepository {
   }
 
   Future<void> githubSignin() async {
-    await _firebaseAuth.signInWithProvider(
-      GithubAuthProvider(),
-    );
+    final GithubAuthProvider githubProvider = GithubAuthProvider();
+
+    try {
+      if (kIsWeb) {
+        await _firebaseAuth.signInWithPopup(githubProvider);
+      } else if (Platform.isAndroid || Platform.isIOS) {
+        await _firebaseAuth.signInWithRedirect(githubProvider);
+        await _firebaseAuth.getRedirectResult();
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 }
 
