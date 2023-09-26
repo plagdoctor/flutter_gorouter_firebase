@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -38,7 +40,7 @@ class AuthenticationRepository {
         await _firebaseAuth.getRedirectResult();
       }
     } catch (e) {
-      print(e);
+      log(e.toString());
     }
   }
 }
